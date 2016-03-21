@@ -5,7 +5,7 @@
 	$lastname = $data->lastName;
 	$email = $data->email;
 	$username = $data->username;
-	$password = $data->password;
+	$password = sha1($data->password);
 	$access = $data->access;
 
 	$statement = "INSERT INTO users (FIRSTNAME, LASTNAME, EMAIL, username, password, ACCESS) VALUES (:firstname, :lastname, :email, :username, :password, :access)";

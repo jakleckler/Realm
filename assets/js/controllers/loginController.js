@@ -28,7 +28,7 @@ app.controller("LoginController", ["$scope", "$http", "$state", function($scope,
 
 		$http.post("assets/php/register.php", data).success(function(response) {
 			console.log(response);
-			localStorage.setItem("user", JSON.stringify({user: response}));
+			localStorage.setItem("token", JSON.stringify(response));
 			$state.go("realm");
 		}).error(function(error) {
 			console.log(error);
@@ -43,7 +43,7 @@ app.controller("LoginController", ["$scope", "$http", "$state", function($scope,
 
 		$http.post("assets/php/login.php", data).success(function(response) {
 			console.log(response);
-			localStorage.setItem("user", JSON.stringify({user: response[0].username}));
+			localStorage.setItem("token", JSON.stringify(response));
 			$state.go("realm");
 		}).error(function(error) {
 			console.log(error);
