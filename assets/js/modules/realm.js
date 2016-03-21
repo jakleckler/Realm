@@ -11,7 +11,7 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
 		.state("realm", {
 			url: "/realm",
 			templateUrl: "pages/realm.html",
-			controller: "realmController"
+			controller: "RealmController"
 		});
 	console.log("Configured");
 	console.log($stateProvider);
