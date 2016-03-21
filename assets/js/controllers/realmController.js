@@ -1,3 +1,3 @@
-app.controller('RealmController', ['$scope', function($scope) {
-	
-}])
+app.controller("RealmController", ["$scope", function($scope) {
+	console.log("RealmController");
+}]);
