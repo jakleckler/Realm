@@ -1,11 +1,10 @@
-var app = angular.module('realm', ['ui.router']);
-app.config(['$stateProvider', function($stateProvider) {
+var app = angular.module("Realm", ["ui.router"]);
+app.config(["$stateProvider", function($stateProvider) {
 	$stateProvider
-		.state('/', {
-		url: '/',
-		templateUrl: 'pages/register.html',
-		controller: 'LoginController'
-		
+		.state("login", {
+		url: '/',		
+		controller: 'LoginController',
+		templateUrl: 'pages/login.html'
 		})
 	console.log("Configured");
 	console.log($stateProvider);
