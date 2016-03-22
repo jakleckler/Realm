@@ -1,8 +1,10 @@
 app.controller("RealmController", ["$scope", "$state", "$http", "AuthenticationService", function($scope, $state, $http, AuthenticationService) {
-	
-
-
-	var token = JSON.parse(localStorage["token"]);
+	var token;
+	if (localStorage["token"]) {
+		token = JSON.parse(localStorage["token"]);
+	} else {
+		token = "notoken";
+	}
 	AuthenticationService.checkToken(token);
 	$scope.logout = function() {
 		var data = {
