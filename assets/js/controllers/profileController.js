@@ -1,4 +1,4 @@
-app.controller("ProfileController", ["$scope", "$http", "$state", "AuthenticationService", function($scope, $http, $state, AuthenticationService) {
+app.controller("ProfileController", ["$scope", "$http", "$state", "AuthenticationService", "EmailService", function($scope, $http, $state, AuthenticationService, EmailService) {
 
 	$scope.user = {
 		firstName: undefined,
@@ -48,14 +48,28 @@ app.controller("ProfileController", ["$scope", "$http", "$state", "Authenticatio
 		var data = {
 			token: token,
 			username: $scope.changePass.username,
-			oldPass:$scope.changePass.oldPass,
-			newPass:$scope.changePass.newPass,
-			newPassCheck:$scope.changePass.newPassCheck
+			oldPass: $scope.changePass.oldPass,
+			newPass: $scope.changePass.newPass,
+			newPassCheck: $scope.changePass.newPassCheck
+		};
+
+		var email = {
+			to: $scope.user.email,
+			subject: "Changed Password",
+			message: "The password for " + $scope.user.username + " has been changed.  If this was not you, please contact customer support",
+			headers: undefined,
+			paramters: undefined
 		};
 
 		$http.post("assets/php/changePass.php", data).success(function(response) {
-			console.log(response);
-			//show success on page
+			if (response === "success") {
+				console.log(response);
+				//show success on page	
+				EmailService.sendEmail(email, false);
+			} else {
+				//show failure on page
+				console.log(response);
+			}		
 		}).error(function(error) {
 			console.error(error);
 		});

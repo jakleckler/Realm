@@ -11,7 +11,6 @@
 		$check = $check->fetchAll();
 
 		if (count($check) == 1){
-			echo "authorized";
 			$statement = "UPDATE users SET password=:newPass WHERE username=:username AND password=:oldPass";
 			$query = $db->prepare($statement);
 			$execute = $query->execute(array(
@@ -19,12 +18,10 @@
 				":username"=>$username,
 				":oldPass"=>$oldPass
 			));
+			echo "success";
 		} else {
-			echo "could not find user information";
+			echo "Could not find user information";
 		}
 	} else {
-		echo "unauthorized";
+		echo "Could not find user infromation";
 	}
-
-?>
-	
