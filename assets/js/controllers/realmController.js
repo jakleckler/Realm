@@ -6,6 +6,11 @@ app.controller("RealmController", ["$scope", "$state", "$http", "AuthenticationS
 		token = "notoken";
 	}
 	AuthenticationService.checkToken(token);
+
+	$scope.profile = function() {
+		$state.go("profile");
+	};
+
 	$scope.logout = function() {
 		var data = {
 			token: token
