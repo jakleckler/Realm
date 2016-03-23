@@ -12,7 +12,7 @@ app.controller("ProfileController", ["$scope", "$http", "$state", "Authenticatio
 		token = JSON.parse(localStorage["token"]);
 	} else {
 		token = "notoken";
-	}
+	};
 	AuthenticationService.checkToken(token);
 
 	$scope.loadProfile = function() {
@@ -51,7 +51,7 @@ app.controller("ProfileController", ["$scope", "$http", "$state", "Authenticatio
 			oldPass:$scope.changePass.oldPass,
 			newPass:$scope.changePass.newPass,
 			newPassCheck:$scope.changePass.newPassCheck
-		}
+		};
 
 		$http.post("assets/php/changePass.php", data).success(function(response) {
 			console.log(response);
