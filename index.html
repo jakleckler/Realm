@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html ng-app="Realm">
-<head ng-controller="MainController">
+<html ng-app="Realm" ng-controller="MainController">
+<head >
 	<title>{{title}}</title>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +10,8 @@
 
 <body>
 	<div ui-view></div>
+	<div>
+		<a ng-click="contact()">Contact</a>
 </body>
 <script src="assets/js/angular.min.js"></script>
 <script src="assets/js/ui.router.js"></script>
@@ -18,6 +20,7 @@
 <script src="assets/js/controllers/mainController.js"></script>
 <script src="assets/js/controllers/realmController.js"></script>
 <script src="assets/js/controllers/profileController.js"></script>
+<script src="assets/js/controllers/contactController.js"></script>
 <script src="assets/js/services/AuthenticationService.js"></script>
 <script src="assets/js/services/EmailService.js"></script>
 </html>
