@@ -2,7 +2,27 @@
 This is the game. Welcome
 </h1>
 <div>
-<a ng-click="profile()">profile</a>
-<a ng-click="logout()">logout</a>
+	<a ng-click="profile()">profile</a>
+	<a ng-click="logout()">logout</a>
 
 </div>
+
+<div class="container">
+	<div class="container">
+		<h4>Information Board</h4>
+		<h6>Save Something...</h6>
+		<input type="text" class="form-control" ng-model="message.title" placeholder="Title">
+		<input type="text" class="form-control" style="height:50%" ng-model="message.information" placeholder="Information">
+		<button ng-click="saveInformation()">Save</button>
+	</div>
+	<div class="container">
+		<h4>Find Something</h4>
+		<input type="text" class="form-control" ng-model="search.title" placeholder="Title">
+		<button ng-click="retrieveInformation()">Search</button>
+		<div class="container">
+			{{search.information}}
+		</div>
+	</div>
+</div>
+
+

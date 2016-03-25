@@ -24,5 +24,43 @@ app.controller("RealmController", ["$scope", "$state", "$http", "AuthenticationS
 			console.error(error);
 		});
 	};
-	console.log($state.params);
+	
+	$scope.message = {
+		title: undefined,
+		information: undefined
+	};
+
+	$scope.search = {
+		title: undefined,
+		information: undefined
+
+	};
+
+	$scope.saveInformation = function() {
+		var data = {
+			token: token,
+			title: $scope.message.title,
+			information: $scope.message.information
+		};
+
+		$http.post("assets/php/saveInformation.php", data).success(function(response) {
+			console.log(response);
+		}).error(function(error) {
+			console.error(error);
+		});
+	};
+
+	$scope.retrieveInformation = function() {
+		var data = {
+			token: token,
+			title: $scope.search.title
+		};
+
+		$http.post("assets/php/retrieveInformation.php", data).success(function(response) {
+			$scope.search.information = response;
+			console.log(response);
+		}).error(function(error) {
+			console.error(error);
+		});
+	};
 }]);
