@@ -55,9 +55,13 @@ app.controller("RealmController", ["$scope", "$state", "$http", "AuthenticationS
 			token: token,
 			title: $scope.search.title
 		};
-
+		$scope.search.information = "";
 		$http.post("assets/php/retrieveInformation.php", data).success(function(response) {
-			$scope.search.information = response;
+			var i = 0;
+			while (i < response.length) {
+				$scope.search.information += response[i].information + "\r\n";
+				i++;
+			}
 			console.log(response);
 		}).error(function(error) {
 			console.error(error);

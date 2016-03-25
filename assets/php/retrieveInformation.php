@@ -7,7 +7,7 @@
 	$result = $db->query("SELECT userID FROM users WHERE token=$token");
 
 	if ($result) {	    	
-		$statement = "SELECT keyword, information FROM data WHERE keyword=$keyword AND userID = (SELECT userID FROM users WHERE token=$token)";
+		$statement = "SELECT keyword, information FROM data WHERE keyword='$keyword'";
 		$information = $db->query($statement);
 		if ($information) {
 			$information = $information->fetchAll();
