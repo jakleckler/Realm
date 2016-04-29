@@ -57,11 +57,27 @@ app.controller("RealmController", ["$scope", "$state", "$http", "AuthenticationS
 		};
 		$scope.search.information = "";
 		$http.post("assets/php/retrieveInformation.php", data).success(function(response) {
-			var i = 0;
-			while (i < response.length) {
-				$scope.search.information += response[i].information + "\r\n";
-				i++;
-			}
+			$scope.search.information = response;
+			console.log(response);
+		}).error(function(error) {
+			console.error(error);
+		});
+	};
+
+	$scope.openItem = function(info) {
+		var data = {
+			token: token,
+			itemID: info.itemID
+		};
+
+	};
+
+	$scope.deleteItem = function(info) {
+		var data = {
+			token: token,
+			infoID: info.infoID
+		};
+		$http.post("assets/php/deleteInfo.php", data).success(function(response) {
 			console.log(response);
 		}).error(function(error) {
 			console.error(error);

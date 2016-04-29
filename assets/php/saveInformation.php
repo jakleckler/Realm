@@ -15,7 +15,7 @@
 			":information" => $information,
 		));
 
-		echo "success";
+		echo "success" , var_dump($keyword), var_dump($information);
 	} else {
 	    echo "0 results";
 	}
