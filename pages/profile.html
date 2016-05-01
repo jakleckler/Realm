@@ -4,7 +4,21 @@
 </h1>
 {{user.firstName}}
 {{user.lastName}}
-<a ng-click="back()">back</a> 
+<a ng-click="back()">back</a>
+<div>
+	<h2>Friend Zone</h2>
+		<div ng-repeat="person in friend.list">
+			<div ng-hide="person.status == 0">
+			{{person.friendUsername}}
+			<button ng-click="acceptFriend(person.friendUsername)" ng-show="(person.status == 1)">Add</button>
+			<button ng-click="deleteFriend(person.friendUsername)" ng-show="(person.status == 2)">Remove</button>
+			</div>
+		</div>
+
+	<h4>Add Friend</h4>
+	<input type="text" class="form-control" ng-model="friend.username" placeholer="Search by Username">
+	<button id="addFriend" ng-click="addFriend()">Add</button>
+</div>
 <div>
 	<h2>Change Password</h2>
 	<input type="text" class="form-control" ng-model="changePass.username" placeholder="Username">

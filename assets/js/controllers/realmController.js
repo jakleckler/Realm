@@ -45,6 +45,8 @@ app.controller("RealmController", ["$scope", "$state", "$http", "AuthenticationS
 
 		$http.post("assets/php/saveInformation.php", data).success(function(response) {
 			console.log(response);
+			$scope.message.title = undefined;
+			$scope.message.information = undefined;
 		}).error(function(error) {
 			console.error(error);
 		});
@@ -58,6 +60,7 @@ app.controller("RealmController", ["$scope", "$state", "$http", "AuthenticationS
 		$scope.search.information = "";
 		$http.post("assets/php/retrieveInformation.php", data).success(function(response) {
 			$scope.search.information = response;
+			$scope.search.title = undefined;
 			console.log(response);
 		}).error(function(error) {
 			console.error(error);
