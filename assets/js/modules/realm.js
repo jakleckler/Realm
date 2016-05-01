@@ -22,6 +22,11 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
 			url: "/contact",
 			templateUrl: "pages/contact.html",
 			controller: "ContactController"
+		})
+		.state("friendPage", {
+			url: "/friend",
+			templateUrl: "pages/friendProfile.html",
+			controller: "FriendPageController"
 		});
 	console.log("Configured");
 	console.log($stateProvider);

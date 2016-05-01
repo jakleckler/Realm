@@ -29,7 +29,13 @@ app.controller("LoginController", ["$scope", "$http", "$state", function($scope,
 		$http.post("assets/php/register.php", data).success(function(response) {
 			console.log(response);
 			localStorage.setItem("token", JSON.stringify(response));
-			$state.go("realm");
+			$scope.registration.firstName = undefined;
+			$scope.registration.lastName = undefined;
+			$scope.registration.email = undefined;
+			$scope.registration.username = undefined;
+			$scope.registration.password = undefined;
+			$scope.registration.checkPass = undefined;
+			$state.go("login");
 		}).error(function(error) {
 			console.log(error);
 		});

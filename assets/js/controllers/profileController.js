@@ -1,4 +1,4 @@
-app.controller("ProfileController", ["$scope", "$http", "$state", "AuthenticationService", "EmailService", function($scope, $http, $state, AuthenticationService, EmailService) {
+app.controller("ProfileController", ["$scope", "$http", "$state", "AuthenticationService", "EmailService", "profileService", function($scope, $http, $state, AuthenticationService, EmailService, profileService) {
 
 	$scope.user = {
 		firstName: undefined,
@@ -134,6 +134,20 @@ app.controller("ProfileController", ["$scope", "$http", "$state", "Authenticatio
 		$http.post("assets/php/acceptFriend.php", data).success(function(response) {
 			console.log(response);
 			$scope.findFriends();
+		}).error(function(error) {
+			console.error(error);
+		});
+	};
+
+	$scope.loadFriend = function(friendUsername) {
+		var data = {
+			friendUsername: friendUsername
+		};
+
+		$http.post("assets/php/loadFriend.php", data).success(function(response) {
+			console.log(response);
+			localStorage.setItem("friend", JSON.stringify(response));
+			$state.go("friendPage");
 		}).error(function(error) {
 			console.error(error);
 		});

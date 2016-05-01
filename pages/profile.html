@@ -11,6 +11,8 @@
 			<div ng-hide="person.status == 0">
 			{{person.friendUsername}}
 			<button ng-click="acceptFriend(person.friendUsername)" ng-show="(person.status == 1)">Add</button>
+			<button ng-click="loadFriend(person.friendUsername)" ng-show="(person.status == 2)">Show</button>
+			<br />
 			<button ng-click="deleteFriend(person.friendUsername)" ng-show="(person.status == 2)">Remove</button>
 			</div>
 		</div>
