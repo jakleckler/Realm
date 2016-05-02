@@ -1,32 +1,47 @@
 <div ng-controller="ProfileController">
-<h1>
-	Welcome {{user.username}}
-</h1>
-{{user.firstName}}
-{{user.lastName}}
-<a ng-click="back()">back</a>
-<div>
-	<h2>Friend Zone</h2>
-		<div ng-repeat="person in friend.list">
-			<div ng-hide="person.status == 0">
-			{{person.friendUsername}}
-			<button ng-click="acceptFriend(person.friendUsername)" ng-show="(person.status == 1)">Add</button>
-			<button ng-click="loadFriend(person.friendUsername)" ng-show="(person.status == 2)">Show</button>
+	<ul>
+		<li><a ng-click="back()">back</a></li>
+	</ul>
+	<div class="container">
+		<h1>
+			Welcome {{user.username}}
+		</h1>
+		<h5>{{user.firstName}} {{user.lastName}}</h5>
+		<br />
+
+		<div>
+			<h2>Friend Zone</h2>
+			<div ng-repeat="person in friend.list" style="border: 2px solid black; background-color: #99ff99;">
+				<div ng-hide="person.status == 0">
+					<h3>{{person.friendUsername}}</h3>
+					<div style="text-align:center;">
+						<button ng-click="acceptFriend(person.friendUsername)" ng-show="(person.status == 1)">Add</button>
+						<button ng-click="loadFriend(person.friendUsername)" ng-show="(person.status == 2)">Show</button>
+						<br />
+						<button ng-click="deleteFriend(person.friendUsername)" ng-show="(person.status == 2)">Remove</button>
+					</div>
+					<br />
+				</div>
+			</div>
 			<br />
-			<button ng-click="deleteFriend(person.friendUsername)" ng-show="(person.status == 2)">Remove</button>
+			<h4>Add Friend</h4>
+			<input type="text" class="form-control" ng-model="friend.username" placeholer="Search by Username">
+			<br />
+			<div style="text-align:center;">
+			<button id="addFriend" ng-click="addFriend()">Add</button>
 			</div>
 		</div>
-
-	<h4>Add Friend</h4>
-	<input type="text" class="form-control" ng-model="friend.username" placeholer="Search by Username">
-	<button id="addFriend" ng-click="addFriend()">Add</button>
-</div>
-<div>
-	<h2>Change Password</h2>
-	<input type="text" class="form-control" ng-model="changePass.username" placeholder="Username">
-	<input type="password" class="form-control" ng-model="changePass.oldPass" placeholder="Old Password">
-	<input type="password" class="form-control" ng-model="changePass.newPass" placeholder="New Password">
-	<input type="password" class="form-control" ng-model="changePass.newPassCheck" placeholder="Re=Enter New Password">
-</div>
-<button id="passChange" ng-click="changePass()">Change Password</button>
+		<br />
+		<div>
+			<h2>Change Password</h2>
+			<input type="text" class="form-control" ng-model="changePass.username" placeholder="Username">
+			<input type="password" class="form-control" ng-model="changePass.oldPass" placeholder="Old Password">
+			<input type="password" class="form-control" ng-model="changePass.newPass" placeholder="New Password">
+			<input type="password" class="form-control" ng-model="changePass.newPassCheck" placeholder="Re=Enter New Password">
+		</div>
+		<br />
+		<div style="text-align:center;">
+		<button id="passChange" ng-click="changePass()">Change Password</button>
+		</div>
+	</div>
 </div>

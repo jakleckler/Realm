@@ -1,29 +1,43 @@
-<h1>
-This is the game. Welcome
-</h1>
-<div>
-	<a ng-click="profile()">profile</a>
-	<a ng-click="logout()">logout</a>
+<ul>
+	<li><a ng-click="profile()">profile</a></li>
+	<li><a ng-click="logout()">logout</a></li>
 
-</div>
-
+</ul>
+<br />
 <div class="container">
-	<div class="container">
-		<h4>Information Board</h4>
-		<h6>Save Something...</h6>
-		<input type="text" class="form-control" ng-model="message.title" placeholder="Title">
-		<input type="text" class="form-control" style="height:50%" ng-model="message.information" placeholder="Information">
-		<button ng-click="saveInformation()">Save</button>
-	</div>
-	<div class="container">
-		<h4>Find Something</h4>
-		<input type="text" class="form-control" ng-model="search.title" placeholder="Title">
-		<button ng-click="retrieveInformation()">Search</button>
-		<div ng-repeat="info in search.information" class="container">
-			<h2>{{info.keyword}}</h2>
-			<button ng-click="openItem()">Open</button>
-			<button ng-click="deleteItem(info)">Delete</button>
+	<h1>Welcome</h1>
 
+	<div>
+		<div>
+			<h4>Information Board</h4>
+			<h6>Save Something...</h6>
+			<input type="text" class="form-control" ng-model="message.title" placeholder="Title">
+			<input type="text" class="form-control" style="height:50%" ng-model="message.information" placeholder="Information">
+			<br />
+			<div style="text-align:center;">
+				<button ng-click="saveInformation()">Save</button>
+			</div>
+		</div>
+		<br />
+		<div>
+			<h4>Find Something</h4>
+			<input type="text" class="form-control" ng-model="search.title" placeholder="Title">
+			<br />
+			<div style="text-align:center;">
+				<button ng-click="retrieveInformation()">Search</button>
+			</div>
+			<br />
+			<div ng-repeat="info in search.information" class="container" style="background-color: #ffff99; border: 3px solid black;">
+				<h2>{{info.keyword}}</h2>
+				<!--<button ng-click="openItem()">Open</button>-->
+				<h4>{{info.information}}</h4>
+				<br />
+				<div style="text-align:center;">
+					<button ng-click="deleteItem(info)">Delete</button>
+				</div>
+				<br />
+
+			</div>
 		</div>
 	</div>
 </div>

@@ -1,7 +1,13 @@
-<div>
-	<h2>Contact Form</h2> <a ng-click="home()">back</a>
+<ul>
+	<li><a ng-click="home()">back</a></li>
+</ul>
+<br />
+<div class="container">
+	<h2>Contact Form</h2>
 	<input type="text" class="form-control" ng-model="contact.name" placeholder="Name">
 	<input type="text" class="form-control" ng-model="contact.email" placeholder="E-mail Address">
 	<input type="text" class="form-control" ng-model="contact.message" placeholder="Message">
+	<div style="text-align:center;">
 	<button ng-click="submitRequest()">Send</button>
+	</div>
 </div>

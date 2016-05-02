@@ -1,15 +1,22 @@
+<ul>
+	<li><a ng-click="home()">Home</a></li>
+</ul>
+<br />
 <div class="container"><h1>{{friend.username}}</h1>
 <h6>{{friend.FIRSTNAME}} {{friend.LASTNAME}}</h6>
 </div>
-<a ng-click="home()">Home</a>
-<br />
 <div class="container">
 	<h4>Find Something</h4>
 	<input type="text" class="form-control" ng-model="search.title" placeholder="Title">
+	<div style="text-align:center;">
 	<button ng-click="retrieveInformation()">Search</button>
+	</div>
 	<div ng-repeat="info in search.information" class="container">
 		<h2>{{info.keyword}}</h2>
-		<button ng-click="openItem()">Open</button>
+		<!--<button ng-click="openItem()">Open</button>-->
+		<h4>
+			{{info.information}}
+		</h4>
 
 	</div>
 </div>

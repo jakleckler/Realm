@@ -1,5 +1,4 @@
-<div class="col-sm-10 col-sm-offset-1">
-	<div class="col-sm-6">
+<div class="container">
 		<h2>Register</h2>
 		<input type="text" class="form-control" ng-model="registration.firstName" placeholder="First Name">
 		<input type="text" class="form-control" ng-model="registration.lastName" placeholder="Last Name">
@@ -7,13 +6,19 @@
 		<input type="text" class="form-control" ng-model="registration.username" placeholder="Choose a Username">
 		<input type="password" class="form-control" ng-model="registration.password" placeholder="Choose Password">
 		<input type="password" class="form-control" ng-model="registration.checkPass" placeholder="Re-Enter Password">
+		<br />
+		<div style="text-align:center;">
 		<button ng-click="registerUser()">Join the Realm</button>
+		</div>
 	</div>
-	<div class="col-sm-6">
+	<div class="container">
 	<h2>Login</h2>
 		<input type="text" class="form-control" ng-model="login.username" placeholder="Username">
 		<input type="password" class="form-control" ng-model="login.password" placeholder="Password">
+		<br />
+		<div style="text-align:center;">
 		<button ng-click="loginUser()">Enter the Realm</button>
+		</div>
 
 	</div>
 </div>
