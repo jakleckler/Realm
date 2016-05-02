@@ -8,15 +8,18 @@
 <div class="container">
 	<h4>Find Something</h4>
 	<input type="text" class="form-control" ng-model="search.title" placeholder="Title">
+	<br />
 	<div style="text-align:center;">
 	<button ng-click="retrieveInformation()">Search</button>
 	</div>
-	<div ng-repeat="info in search.information" class="container">
+	<br />
+	<div ng-repeat="info in search.information" class="container" style="background-color: #ffff99; border: 3px solid black;">
 		<h2>{{info.keyword}}</h2>
 		<!--<button ng-click="openItem()">Open</button>-->
 		<h4>
 			{{info.information}}
 		</h4>
+		<br />
 
 	</div>
 </div>

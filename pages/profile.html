@@ -11,8 +11,8 @@
 
 		<div>
 			<h2>Friend Zone</h2>
-			<div ng-repeat="person in friend.list" style="border: 2px solid black; background-color: #99ff99;">
-				<div ng-hide="person.status == 0">
+			<div ng-repeat="person in friend.list" style="border: 2px solid black; background-color: #99ff99;" ng-hide="person.status == 0">
+				<div >
 					<h3>{{person.friendUsername}}</h3>
 					<div style="text-align:center;">
 						<button ng-click="acceptFriend(person.friendUsername)" ng-show="(person.status == 1)">Add</button>
